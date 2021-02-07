@@ -11,6 +11,7 @@ local Dictionary = {
 	flatten = require(script.flatten),
 	flip = require(script.flip),
 	get = require(script.get),
+	getIn = require(script.getIn),
 	has = require(script.has),
 	includes = require(script.includes),
 	join = require(script.join),
