@@ -43,5 +43,4 @@ return function()
 	describe("GIVEN a number as keyPath", itShouldThrowAsKeyPath(10))
 	describe("GIVEN string as keyPath", itShouldThrowAsKeyPath("abc"))
 	describe("GIVEN nil as keyPath", itShouldThrowAsKeyPath(nil))
-	describe("GIVEN dictionary as keyPath", itShouldThrowAsKeyPath({ foo = "bar" }))
 end

@@ -53,6 +53,10 @@ local function updateInDeeply(existing, keyPath, notSetValue, updater, i)
 end
 
 return function(dictionary, keyPath, updater, notSetValue)
+	local dictionaryType = type(dictionary)
+	assert(dictionaryType == "table", "expected a table for first argument, got " .. dictionaryType)
+	assert(type(keyPath) == "table", string.format("Invalid keyPath: expected array: %s", tostring(keyPath)))
+
 	local updatedValue = updateInDeeply(
 		dictionary, keyPath, notSetValue, updater, 1
 	)

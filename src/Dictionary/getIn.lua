@@ -1,5 +1,7 @@
 return function(dictionary, keyPath, default)
-	assert(type(keyPath) == "table" and #keyPath > 0, string.format("Invalid keyPath: expected array: %s", tostring(keyPath)))
+	local dictionaryType = type(dictionary)
+	assert(dictionaryType == "table", "expected a table for first argument, got " .. dictionaryType)
+	assert(type(keyPath) == "table", string.format("Invalid keyPath: expected array: %s", tostring(keyPath)))
 
 	local node = dictionary
 	for _, path in ipairs(keyPath) do
