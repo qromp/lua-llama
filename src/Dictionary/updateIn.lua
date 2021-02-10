@@ -28,7 +28,7 @@ local function updateInDeeply(existing, keyPath, notSetValue, updater, i)
 	local nextUpdated = updateInDeeply(nextExisting, keyPath, notSetValue, updater, i + 1)
 
 	if nextUpdated == nil then
-		return removeKey(existing, key)
+		return removeKey(existing or notSetValue, key)
 	else
 		return set(existing or notSetValue, key, nextUpdated)
 	end

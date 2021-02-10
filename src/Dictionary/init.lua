@@ -21,6 +21,7 @@ local Dictionary = {
 	removeKey = require(script.removeKey),
 	removeValue = require(script.removeValue),
 	set = require(script.set),
+	setIn = require(script.setIn),
 	some = require(script.some),
 	update = require(script.update),
 	updateIn = require(script.updateIn),

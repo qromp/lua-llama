@@ -104,12 +104,4 @@ return function()
 		end)
 		expect(equalsDeep(result, { a = 1, b = 20, c = 3 })).to.equal(true)
 	end)
-
-	it("does not perform edit when new value is the same as old value", function()
-		local m = { a = { b = { c = 10 } } }
-		local m2 = updateIn(m, {"a", "b", "c"}, function(id)
-			return id
-		end)
-		expect(m2).to.equal(m);
-	end)
 end
