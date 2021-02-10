@@ -23,6 +23,7 @@ local Dictionary = {
 	set = require(script.set),
 	some = require(script.some),
 	update = require(script.update),
+	updateIn = require(script.updateIn),
 	values = require(script.values),
 }
 
