@@ -17,10 +17,14 @@ return function()
 		expect(equalsDeep(result, { a = { b = { c = 20 }}})).to.equal(true)
 	end)
 
-	--[[it("deep edit throws if non-editable path", function()
-		local deep = { key = {[{"item"}] = true }}
-		updateIn(deep, {"key", "foo", "item"})
-	end)]]
+	it("deep edit throws if non-editable path", function()
+		local deep = { key = { bar = { item = 10 }} }
+		expect(function()
+			updateIn(deep, {"key", "foo", "item"}, function()
+				return "newValue"
+			end)
+		end).to.throw("Cannot update within non-table value in path")
+	end)
 
 	it("shallow remove", function()
 		local m = { a = 123 }

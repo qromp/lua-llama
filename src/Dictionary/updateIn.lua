@@ -7,6 +7,14 @@ local function quoteString(value)
 	return string.format("%q", value)
 end
 
+local function throw(existing, keyPath, i)
+	error(string.format(
+		"Cannot update within non-table value in path [%s] = %s",
+		table.concat(map(slice(keyPath, 1, i - 1), quoteString), ", "),
+		tostring(existing)
+	))
+end
+
 local function updateInDeeply(existing, keyPath, notSetValue, updater, i)
 	local wasNotSet = existing == nil
 	if i > #keyPath then
@@ -15,12 +23,8 @@ local function updateInDeeply(existing, keyPath, notSetValue, updater, i)
 		return newValue == existingValue and existing or newValue
 	end
 
-	if not wasNotSet and type(existing) ~= "table" then
-		error(string.format(
-			"Cannot update within non-table value in path [%s] = %s",
-			table.concat(map(slice(keyPath, 1, i-1), quoteString), ", "),
-			tostring(existing)
-		))
+	if (not wasNotSet and type(existing) ~= "table") then
+		throw(existing, keyPath, i)
 	end
 
 	local key = keyPath[i]
@@ -38,7 +42,11 @@ local function updateInDeeply(existing, keyPath, notSetValue, updater, i)
 			return removeKey(existing or notSetValue, key)
 		end
 	else
-		return set(existing or notSetValue, key, nextUpdated)
+		if existing or notSetValue then
+			return set(existing or notSetValue, key, nextUpdated)
+		else
+			throw(existing, keyPath, i)
+		end
 	end
 
 	return nil
