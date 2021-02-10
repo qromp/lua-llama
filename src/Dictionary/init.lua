@@ -18,6 +18,7 @@ local Dictionary = {
 	joinDeep = require(script.joinDeep),
 	keys = require(script.keys),
 	map = require(script.map),
+	removeIn = require(script.removeIn),
 	removeKey = require(script.removeKey),
 	removeValue = require(script.removeValue),
 	set = require(script.set),

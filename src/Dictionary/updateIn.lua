@@ -24,14 +24,24 @@ local function updateInDeeply(existing, keyPath, notSetValue, updater, i)
 	end
 
 	local key = keyPath[i]
-	local nextExisting = (wasNotSet and notSetValue or existing)[key]
+	local nextExisting
+	if wasNotSet then
+		nextExisting = notSetValue and notSetValue[key] or nil
+	else
+		nextExisting = existing[key]
+	end
+
 	local nextUpdated = updateInDeeply(nextExisting, keyPath, notSetValue, updater, i + 1)
 
 	if nextUpdated == nil then
-		return removeKey(existing or notSetValue, key)
+		if existing or notSetValue then
+			return removeKey(existing or notSetValue, key)
+		end
 	else
 		return set(existing or notSetValue, key, nextUpdated)
 	end
+
+	return nil
 end
 
 return function(dictionary, keyPath, updater, notSetValue)
