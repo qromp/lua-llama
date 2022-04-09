@@ -1,4 +1,3 @@
-
 local function toList(set)
 	local new = {}
 	local index = 1

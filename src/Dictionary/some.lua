@@ -1,4 +1,3 @@
-
 local function some(dictionary, predicate)
 	local predicateType = type(predicate)
 	assert(predicateType == "function", "expected a function for second argument, got " .. predicateType)

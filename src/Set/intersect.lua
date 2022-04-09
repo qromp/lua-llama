@@ -1,7 +1,6 @@
-
 local function intersect(...)
 	local new = {}
-	local argc = select('#', ...)
+	local argc = select("#", ...)
 	local first = select(1, ...)
 
 	for k, _ in pairs(first) do

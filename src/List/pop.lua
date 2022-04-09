@@ -1,4 +1,3 @@
-
 local function pop(list, pops)
 	local listType = type(list)
 	assert(listType == "table", "expected a table for first argument, got " .. listType)

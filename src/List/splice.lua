@@ -1,4 +1,3 @@
-
 local function splice(list, start, finish, ...)
 	local listType = type(list)
 	assert(listType == "table", "expected a table for first argument, got " .. listType)
@@ -20,7 +19,7 @@ local function splice(list, start, finish, ...)
 
 	for i = 1, len do
 		if i == start then
-			for j = 1, select('#', ...) do
+			for j = 1, select("#", ...) do
 				new[index] = select(j, ...)
 				index = index + 1
 			end

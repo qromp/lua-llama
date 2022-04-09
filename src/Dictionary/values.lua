@@ -1,8 +1,7 @@
-
 local function values(dictionary)
 	local dictionaryType = type(dictionary)
 	assert(dictionaryType == "table", "expected a table for first argument, got " .. dictionaryType)
-	
+
 	local valuesList = {}
 
 	local index = 1

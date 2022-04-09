@@ -1,4 +1,3 @@
-
 local equalObjects = require(script.Parent.Parent.equalObjects)
 
 local function equals(...)
@@ -6,7 +5,7 @@ local function equals(...)
 		return true
 	end
 
-	local argc = select('#', ...)
+	local argc = select("#", ...)
 
 	for i = 1, argc do
 		local list = select(i, ...)

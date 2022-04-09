@@ -1,8 +1,7 @@
-
 local function slice(list, from, to)
 	local listType = type(list)
 	assert(listType == "table", "expected a table for first argument, got " .. listType)
-	
+
 	local len = #list
 	from = from or 1
 	to = to or len

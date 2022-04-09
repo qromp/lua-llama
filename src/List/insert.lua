@@ -1,4 +1,3 @@
-
 local function insert(list, index, ...)
 	local listType = type(list)
 	assert(listType == "table", "expected a table for first argument, got " .. listType)
@@ -8,15 +7,15 @@ local function insert(list, index, ...)
 
 	local new = {}
 	local resultIndex = 1
-	
+
 	for i = 1, len do
 		if i == index then
-			for j = 1, select('#', ...) do
+			for j = 1, select("#", ...) do
 				new[resultIndex] = select(j, ...)
 				resultIndex = resultIndex + 1
 			end
 		end
-		
+
 		new[resultIndex] = list[i]
 		resultIndex = resultIndex + 1
 	end

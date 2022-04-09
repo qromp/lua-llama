@@ -1,11 +1,10 @@
-
 local toSet = require(script.Parent.Parent.List.toSet)
 
 local function removeValue(list, ...)
 	local listType = type(list)
 	assert(listType == "table", "expected a table for first argument, got " .. listType)
-	
-	local valuesSet = toSet({...})
+
+	local valuesSet = toSet({ ... })
 	local new = {}
 	local index = 1
 

@@ -1,4 +1,3 @@
-
 local None = require(script.Parent.Parent.None)
 local copyDeep = require(script.Parent.copyDeep)
 

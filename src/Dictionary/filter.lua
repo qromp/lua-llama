@@ -1,4 +1,3 @@
-
 local function filter(dictionary, filterer)
 	local dictionaryType = type(dictionary)
 	assert(dictionaryType == "table", "expected a table for first argument, got " .. dictionaryType)
@@ -13,7 +12,7 @@ local function filter(dictionary, filterer)
 			new[k] = v
 		end
 	end
-	
+
 	return new
 end
 

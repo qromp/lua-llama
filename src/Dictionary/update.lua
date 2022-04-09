@@ -1,4 +1,3 @@
-
 local copy = require(script.Parent.copy)
 
 local function noUpdate(v, k)
@@ -28,7 +27,7 @@ local function update(dictionary, key, updater, callback)
 	else
 		v, k = call(callback, false, key)
 	end
-	
+
 	new[k or key] = v
 
 	return new

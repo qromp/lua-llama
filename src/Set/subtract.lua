@@ -1,4 +1,3 @@
-
 local function subtract(set, ...)
 	local new = {}
 
@@ -6,7 +5,7 @@ local function subtract(set, ...)
 		new[k] = true
 	end
 
-	for i = 1, select('#', ...) do
+	for i = 1, select("#", ...) do
 		new[select(i, ...)] = nil
 	end
 

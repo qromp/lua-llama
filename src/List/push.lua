@@ -1,8 +1,7 @@
-
 local function push(list, ...)
 	local listType = type(list)
 	assert(listType == "table", "expected a table for first argument, got " .. listType)
-	
+
 	local new = {}
 	local len = #list
 
@@ -10,7 +9,7 @@ local function push(list, ...)
 		new[i] = list[i]
 	end
 
-	for i = 1, select('#', ...) do
+	for i = 1, select("#", ...) do
 		new[len + i] = select(i, ...)
 	end
 

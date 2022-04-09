@@ -1,4 +1,3 @@
-
 local function add(set, ...)
 	local new = {}
 
@@ -6,7 +5,7 @@ local function add(set, ...)
 		new[k] = true
 	end
 
-	for i = 1, select('#', ...) do
+	for i = 1, select("#", ...) do
 		new[select(i, ...)] = true
 	end
 

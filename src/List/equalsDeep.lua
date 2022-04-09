@@ -1,4 +1,3 @@
-
 local equalObjects = require(script.Parent.Parent.equalObjects)
 
 local function equalsDeepOneWay(object, comparison)
@@ -22,7 +21,7 @@ local function equalsDeep(...)
 		return true
 	end
 
-	local argc = select('#', ...)
+	local argc = select("#", ...)
 
 	for i = 1, argc do
 		local dictionary = select(i, ...)
@@ -30,7 +29,7 @@ local function equalsDeep(...)
 		for j = 1, argc do
 			if j ~= i then
 				local compare = select(j, ...)
-				
+
 				if not equalsDeepOneWay(dictionary, compare) then
 					return false
 				end

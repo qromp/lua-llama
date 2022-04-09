@@ -1,8 +1,7 @@
-
 local function flatMap(list, mapper)
 	local listType = type(list)
 	assert(listType == "table", "expected a table for first argument, got " .. listType)
-	
+
 	local mapperType = type(mapper)
 	assert(mapperType == "function", "expected a function for second argument, got " .. mapperType)
 
@@ -26,7 +25,7 @@ local function flatMap(list, mapper)
 			end
 		end
 	end
-	
+
 	return new
 end
 

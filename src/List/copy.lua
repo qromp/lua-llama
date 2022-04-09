@@ -1,4 +1,3 @@
-
 local function copy(list)
 	local listType = type(list)
 	assert(listType == "table", "expected a table for first argument, got " .. listType)
@@ -8,7 +7,7 @@ local function copy(list)
 	for i = 1, #list do
 		new[i] = list[i]
 	end
-	
+
 	return new
 end
 
